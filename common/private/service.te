@@ -12,3 +12,6 @@ type parallel_space_service, system_api_service, system_server_service, service_
 
 # Linearmotor Vibrator
 type linearmotor_vibrator_service, system_api_service, system_server_service, service_manager_type;
+
+# Pocket judge
+type pocket_service, system_api_service, system_server_service, service_manager_type;
