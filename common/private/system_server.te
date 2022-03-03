@@ -6,6 +6,10 @@ add_service(system_server, app_lock_service);
 add_service(system_server, parallel_space_service);
 
 
+# DC Dimming
+allow system_server vendor_sysfs_dc_dim:file rw_file_perms;
+add_service(system_server, dc_dimming_service);
+
 # Use HALs
 hal_client_domain(system_server, hal_lineage_fastcharge)
 hal_client_domain(system_server, hal_lineage_health)
