@@ -15,3 +15,19 @@ set_prop(platform_app, bootanim_system_prop);
 
 # Allow storage access to files app
 allow platform_app mnt_pass_through_file:dir { getattr search };
+
+# Allow Touch HAL service to be found
+hal_client_domain(platform_app, hal_lineage_touch)
+
+# Allow externalstorage access
+allow platform_app mnt_pass_through_file:dir { create_dir_perms mounton };
+
+# Allow systemui to read audio properties for shutter sound adjustment
+get_prop(platform_app, audio_config_prop)
+
+# Allow launcher app to read memory info
+r_dir_file(platform_app, config_gz)
+r_dir_file(platform_app, sysfs_zram)
+
+# Launcher apps read pm.archiving.enabled
+get_prop(platform_app, pm_archiving_enabled_prop)
